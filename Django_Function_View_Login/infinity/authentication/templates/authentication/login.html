@@ -1,0 +1,32 @@
+{% extends "authentication/base.html" %}
+{% load static %}
+
+{% block body %}
+
+    <div class="flex items-center justify-center h-screen">
+
+        <div class="md:flex bg-white drop-shadow-xl max-w-lg">
+            <img class="flex-1 w-full object-fill" src="{% static 'authentication/media/federica-giusti-Wl7ZewvzIb0-unsplash.jpg' %}" alt="">
+
+        <form action="" method="POST">
+            {% csrf_token %}
+                    <div class="p-4 flex-1 md:flex md:flex-col justify-center">
+                        <h1 class="text-2xl font-bold text-gray-600 mb-2">Login to Infinity</h1>
+                        {% if warning_message %}
+                            {{ warning_message }}
+                        {% endif %}
+                        <div class="mb-4">
+                            <label for="username" class="block text-gray-400 mb-2">Username</label>
+                            <input type="text" id="username" name="username" class="border border-gray-200 text-gray-600 shadow-inner px-3 py-2 w-full focus:shadow-outline">
+                        </div> 
+                        <div class="mb-4">   
+                            <label for="password" class="block text-gray-400 mb-2">Password</label>
+                            <input type="password" name="password" id="password" class="border border-gray-200 text-gray-600 shadow-inner px-4 py-2 w-full focus:shadow-outline">
+                        </div> 
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Submit</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+
+{% endblock %}
