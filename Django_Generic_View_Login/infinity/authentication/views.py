@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView, LogoutView
 
 # Create your views here.
 
@@ -12,5 +13,4 @@ def index(request):
 # Success
 @login_required
 def dashboard(request):
-    print(request.POST)
     return render(request, "authentication/dashboard.html")
