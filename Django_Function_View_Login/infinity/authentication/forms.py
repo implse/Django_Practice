@@ -1,6 +1,5 @@
 from django import forms
 
-# Authentication form
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=63)
-    password = forms.CharField(max_length=63, widget=forms.PasswordInput)
+    username = forms.CharField(max_length=64, label='username')
+    password = forms.CharField(max_length=64, widget=forms.PasswordInput, label='password')
