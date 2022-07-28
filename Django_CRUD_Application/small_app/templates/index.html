@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+    {% block content %}
+
+    <h2>All Products in Stock</h2>
+
+    <table class="table table-striped-columns">
+
+        <thead class="table-dark">
+            <tr>
+                <td>Product</td>
+                <td>Purchase</td>
+                <td>Sale</td>
+                <td>Quantity</td>
+                <td>Gender</td>
+                <td>Update</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+
+        {% for product in products %}
+        <tr>
+            <td><a href="{% url 'read_product' product.id %}"> {{ product | title }} </a></td>
+            <td>{{ product.purchase }} </td>
+            <td>{{ product.sale }}</td>
+            <td>{{ product.qty }}</td>
+            <td>{{ product.gender }}</td>
+            <td><a href="{% url 'update_product' product.id %}"> Update </a></td>
+            <td><a href="{% url 'delete_product' product.id %}"> delete </a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    {% endblock %}
